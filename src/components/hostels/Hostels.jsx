@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
 import { getHostels } from "../../data";
 
 export default function Hostels() {
@@ -13,13 +13,19 @@ export default function Hostels() {
         }}
       >
         {hostels.map((hostel) => (
-          <Link
-            style={{ display: "block", margin: "1rem 0" }}
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                display: "block",
+                margin: "1rem 0",
+                color: isActive ? "red" : "",
+              };
+            }}
             to={`/hostels/${hostel.id}`}
             key={hostel.id}
           >
             {hostel.name}
-          </Link>
+          </NavLink>
         ))}
       </nav>
       <Outlet />
