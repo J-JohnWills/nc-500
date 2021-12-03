@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -9,6 +9,7 @@ function App() {
         <Link to="/hostels">Hostels</Link> |{" "}
         <Link to="/itineraries">Itineraries</Link>
       </nav>
+      <Outlet />
     </div>
   );
 }
