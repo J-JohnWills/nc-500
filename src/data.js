@@ -265,3 +265,7 @@ export function getHostels() {
 export function getHostel(idIn) {
   return hostels.find((hostel) => hostel.id === idIn);
 }
+
+export function getItineraries() {
+  return itineraries();
+}

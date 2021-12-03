@@ -4,9 +4,11 @@ import { Navbar, Container, Nav } from "react-bootstrap";
 import "../../bootstrap_flatly.css";
 import { LinkContainer } from "react-router-bootstrap";
 
+console.log(process.env.REACT_APP_GOOGLE_STATIC_API_KEY);
+
 function App() {
   return (
-    <Container>
+    <div>
       <Navbar bg="dark" expand="md">
         <Container>
           <LinkContainer to="/">
@@ -26,7 +28,7 @@ function App() {
         </Container>
       </Navbar>
       <Outlet />
-    </Container>
+    </div>
   );
 }
 
