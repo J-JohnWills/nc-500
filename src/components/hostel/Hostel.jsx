@@ -1,3 +1,15 @@
+import { useParams } from "react-router-dom";
+import { getHostel } from "../../data";
+
 export default function Hostel() {
-  return <h2>Hostel #???</h2>;
+  let params = useParams();
+  let hostel = getHostel(params.hostelId);
+
+  return (
+    <main>
+      <h2>{hostel.name}</h2>
+      <p>{hostel.description}</p>
+      <p></p>
+    </main>
+  );
 }

@@ -261,3 +261,7 @@ var itineraries = [
 export function getHostels() {
   return hostels;
 }
+
+export function getHostel(idIn) {
+  return hostels.find((hostel) => hostel.id === idIn);
+}
