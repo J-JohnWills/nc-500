@@ -9,7 +9,9 @@ function App() {
     <Container>
       <Navbar bg="dark" expand="md">
         <Container>
-          <Navbar.Brand>NC 500</Navbar.Brand>
+          <LinkContainer to="/">
+            <Navbar.Brand>NC 500</Navbar.Brand>
+          </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navber-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
