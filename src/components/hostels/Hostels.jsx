@@ -1,5 +1,7 @@
 import { Link, Outlet, NavLink, useSearchParams } from "react-router-dom";
 import { getHostels } from "../../data";
+import { Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function Hostels() {
   let hostels = getHostels();
@@ -7,12 +9,7 @@ export default function Hostels() {
 
   return (
     <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem",
-        }}
-      >
+      <Nav className="flex-column">
         <input
           value={searchParams.get("filter") || ""}
           onChange={(event) => {
@@ -32,21 +29,11 @@ export default function Hostels() {
             return name.startsWith(filter.toLowerCase());
           })
           .map((hostel) => (
-            <NavLink
-              style={({ isActive }) => {
-                return {
-                  display: "block",
-                  margin: "1rem 0",
-                  color: isActive ? "red" : "",
-                };
-              }}
-              to={`/hostels/${hostel.id}`}
-              key={hostel.id}
-            >
-              {hostel.name}
-            </NavLink>
+            <LinkContainer to={`/hostels/${hostel.id}`} key={hostel.id}>
+              <Nav.Link>{hostel.name}</Nav.Link>
+            </LinkContainer>
           ))}
-      </nav>
+      </Nav>
       <Outlet />
     </div>
   );
