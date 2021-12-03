@@ -10,8 +10,8 @@ export default function Hostels() {
   return (
     <Container>
       <Row>
-        <Col xs={3}>
-          <Nav className="flex-column">
+        <Col>
+          <Nav className="flex-sm-column">
             <Form>
               <Form.Group className="mb-3" controlId="searchHostel">
                 <Form.Label>Search for a hostel</Form.Label>
