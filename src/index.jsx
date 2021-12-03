@@ -11,7 +11,16 @@ render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
+        {/* Hostels path, including the index and it's children */}
         <Route path="hostels" element={<Hostels />}>
+          <Route
+            index
+            element={
+              <main style={{ padding: "1rem" }}>
+                <p>Select a hostel</p>
+              </main>
+            }
+          />
           <Route path=":hostelId" element={<Hostel />} />
         </Route>
         <Route path="itineraries" element={<Itineraries />} />
