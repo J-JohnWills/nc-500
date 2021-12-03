@@ -18,7 +18,7 @@ export default function Hostels() {
             to={`/hostels/${hostel.id}`}
             key={hostel.id}
           >
-            {hostel.id}
+            {hostel.name}
           </Link>
         ))}
       </nav>
