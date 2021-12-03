@@ -6,7 +6,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 function App() {
   return (
-    <div className="App">
+    <Container>
       <Navbar bg="dark" expand="md">
         <Container>
           <Navbar.Brand>NC 500</Navbar.Brand>
@@ -24,7 +24,7 @@ function App() {
         </Container>
       </Navbar>
       <Outlet />
-    </div>
+    </Container>
   );
 }
 
