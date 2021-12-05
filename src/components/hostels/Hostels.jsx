@@ -2,6 +2,7 @@ import { Link, Outlet, NavLink, useSearchParams } from "react-router-dom";
 import { getHostels } from "../../data";
 import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { useEffect, useState } from "react";
 
 export default function Hostels() {
   let hostels = getHostels();
