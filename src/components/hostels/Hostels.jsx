@@ -5,8 +5,40 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useEffect, useState } from "react";
 
 export default function Hostels() {
-  let hostels = getHostels();
+  // For use with hard coded datasource
+  // let hostels = getHostels();
+
   let [searchParams, setSearchParams] = useSearchParams();
+  const [hostelList, setHostelList] = useState([
+    {
+      id: "",
+      name: "",
+      address: "",
+      postcode: "",
+      phone: "",
+      email: "",
+      description: "",
+      location: { lat: 0, long: 0 },
+      ratings: [],
+      reviews: [
+        {
+          reviewer: "",
+          review: "",
+        },
+      ],
+    },
+  ]);
+
+  // Fetch from CW data source
+  useEffect(() => {
+    const fetchHostels = async () => {
+      const res = await fetch("http://localhost:8000/hostels");
+      const data = await res.json();
+      setHostelList(data);
+      console.log(data);
+    };
+    fetchHostels();
+  }, []);
 
   return (
     <Container>
@@ -31,11 +63,11 @@ export default function Hostels() {
                 ></Form.Control>
               </Form.Group>
             </Form>
-            {hostels
-              .filter((hostel) => {
+            {hostelList
+              .filter((hostelList) => {
                 let filter = searchParams.get("filter");
                 if (!filter) return true;
-                let name = hostel.name.toLowerCase();
+                let name = hostelList.name.toLowerCase();
                 return name.startsWith(filter.toLowerCase());
               })
               .map((hostel) => (
