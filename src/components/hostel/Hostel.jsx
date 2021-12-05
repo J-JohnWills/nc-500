@@ -1,9 +1,58 @@
 import { useParams } from "react-router-dom";
 import { getHostel } from "../../data";
+import { Bar } from "react-chartjs-2";
+import { useEffect, useState } from "react";
+
+import CryptoChart from "../CryptoChart";
 
 export default function Hostel() {
   let params = useParams();
   let hostel = getHostel(params.hostelId);
+
+  // TODO: Turn into beautiful ravioli
+  // FIXME: Fix this spaghetti
+  // Adds the ratings to a 2d array where the index number of each array corresponds to
+  // the rating - 1
+
+  // var arrayOfRatingsArrays = [[], [], [], [], []];
+  // var arrayIndex = 0;
+  // for (let i = 0; i < hostel.ratings.length; i++) {
+  //   arrayIndex = hostel.ratings[i] - 1;
+  //   arrayOfRatingsArrays[arrayIndex].push(hostel.ratings[i]);
+  // }
+  // console.log(arrayOfRatingsArrays);
+  // console.log(hostel.ratings);
+  // for (let i = 0; i < arrayOfRatingsArrays.length; i++) {
+  //   console.log(arrayOfRatingsArrays[i]);
+  // }
+
+  // Chart with api tut section
+  useEffect(() => {
+    const fetchPrices = async () => {
+      const res = await fetch("https://api.coincap.io/v2/assets/?limit=5");
+      const data = await res.json();
+      setChartData({
+        labels: data.data.map((crypto) => crypto.name),
+        datasets: [
+          {
+            label: "Price in USD",
+            data: data.data.map((crypto) => crypto.priceUsd),
+            backgroundColor: [
+              "#ffbb11",
+              "#ecf0f1",
+              "#50AF95",
+              "#f3ba2f",
+              "#2a71d0",
+            ],
+          },
+        ],
+      });
+      console.log(data);
+    };
+    fetchPrices();
+  }, []);
+
+  const [chartData, setChartData] = useState({});
 
   return (
     <main>
@@ -25,6 +74,7 @@ export default function Hostel() {
           <li style={{ float: "left", listStyle: "none" }}>{rating} </li>
         ))}
       </ul>
+      <CryptoChart chartData={chartData} />
     </main>
   );
 }
