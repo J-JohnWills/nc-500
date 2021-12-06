@@ -62,8 +62,9 @@ export default function Hostel() {
     for (let i = 0; i < ratingsIn.length; i++) {
       total += ratingsIn[i];
     }
-    console.log(total / ratingsIn.length);
-    return total / ratingsIn.length;
+    average = total / ratingsIn.length;
+    console.log(average.toFixed(1));
+    return average.toFixed(1);
   }
 
   return (
@@ -78,7 +79,7 @@ export default function Hostel() {
       <h4>Ratings</h4>
       <p>
         This hostel has an average rating of {averageRating(hostel.ratings)} out
-        of {hostel.ratings.length} reviews.
+        of 5, from a total of {hostel.ratings.length} reviews.
       </p>
       <br />
       <div>
