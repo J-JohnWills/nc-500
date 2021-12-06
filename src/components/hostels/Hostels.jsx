@@ -67,8 +67,10 @@ export default function Hostels() {
               .filter((hostelList) => {
                 let filter = searchParams.get("filter");
                 if (!filter) return true;
-                let name = hostelList.name.toLowerCase();
-                return name.startsWith(filter.toLowerCase());
+                let result =
+                  hostelList.description.toLowerCase() ||
+                  hostelList.name.toLowerCase();
+                return result.includes(filter.toLowerCase());
               })
               .map((hostel) => (
                 <LinkContainer to={`/hostels/${hostel.id}`} key={hostel.id}>

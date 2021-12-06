@@ -72,10 +72,15 @@ export default function Hostel() {
       <h2>{hostel.name}</h2>
       <p>{hostel.description}</p>
       <h4>Where To Find Us</h4>
-      <p>{hostel.address}</p>
-      <p>{hostel.postcode}</p>
-      <p>{hostel.phone}</p>
-      <p>{hostel.email}</p>
+      <p>
+        {hostel.address}
+        <br />
+        {hostel.postcode}
+        <br />
+        {hostel.phone}
+        <br />
+        {hostel.email}
+      </p>
       <h4>Ratings</h4>
       <p>
         This hostel has an average rating of {averageRating(hostel.ratings)} out
