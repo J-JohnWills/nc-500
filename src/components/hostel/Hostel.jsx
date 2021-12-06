@@ -3,7 +3,7 @@ import { getHostel } from "../../data";
 import { Bar } from "react-chartjs-2";
 import { useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
-
+import { LinkContainer } from "react-router-bootstrap";
 import CryptoChart from "../CryptoChart";
 
 export default function Hostel() {
@@ -55,26 +55,31 @@ export default function Hostel() {
 
   // const [chartData, setChartData] = useState({});
 
+  function averageRating(ratingsIn) {
+    let total = 0;
+    let average = 0;
+
+    for (let i = 0; i < ratingsIn.length; i++) {
+      total += ratingsIn[i];
+    }
+    console.log(total / ratingsIn.length);
+    return total / ratingsIn.length;
+  }
+
   return (
     <main>
       <h2>{hostel.name}</h2>
       <p>{hostel.description}</p>
+      <h4>Where To Find Us</h4>
       <p>{hostel.address}</p>
       <p>{hostel.postcode}</p>
       <p>{hostel.phone}</p>
       <p>{hostel.email}</p>
+      <h4>Ratings</h4>
       <p>
-        {hostel.reviews.map((review) => (
-          <li>
-            {review.review} | <em>{review.reviewer}</em>
-          </li>
-        ))}
+        This hostel has an average rating of {averageRating(hostel.ratings)} out
+        of {hostel.ratings.length} reviews.
       </p>
-      <ul>
-        {hostel.ratings.map((rating) => (
-          <li style={{ float: "left", listStyle: "none" }}>{rating} </li>
-        ))}
-      </ul>
       <br />
       <div>
         <h3>Reviews</h3>
