@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { getHostel } from "../../data";
 import { Bar } from "react-chartjs-2";
 import { useEffect, useState } from "react";
+import { Card, Button } from "react-bootstrap";
 
 import CryptoChart from "../CryptoChart";
 
@@ -27,32 +28,32 @@ export default function Hostel() {
   // }
 
   // Chart with api tut section
-  useEffect(() => {
-    const fetchPrices = async () => {
-      const res = await fetch("https://api.coincap.io/v2/assets/?limit=5");
-      const data = await res.json();
-      setChartData({
-        labels: data.data.map((crypto) => crypto.name),
-        datasets: [
-          {
-            label: "Price in USD",
-            data: data.data.map((crypto) => crypto.priceUsd),
-            backgroundColor: [
-              "#ffbb11",
-              "#ecf0f1",
-              "#50AF95",
-              "#f3ba2f",
-              "#2a71d0",
-            ],
-          },
-        ],
-      });
-      console.log(data);
-    };
-    fetchPrices();
-  }, []);
+  // useEffect(() => {
+  //   const fetchPrices = async () => {
+  //     const res = await fetch("https://api.coincap.io/v2/assets/?limit=5");
+  //     const data = await res.json();
+  //     setChartData({
+  //       labels: data.data.map((crypto) => crypto.name),
+  //       datasets: [
+  //         {
+  //           label: "Price in USD",
+  //           data: data.data.map((crypto) => crypto.priceUsd),
+  //           backgroundColor: [
+  //             "#ffbb11",
+  //             "#ecf0f1",
+  //             "#50AF95",
+  //             "#f3ba2f",
+  //             "#2a71d0",
+  //           ],
+  //         },
+  //       ],
+  //     });
+  //     console.log(data);
+  //   };
+  //   fetchPrices();
+  // }, []);
 
-  const [chartData, setChartData] = useState({});
+  // const [chartData, setChartData] = useState({});
 
   return (
     <main>
@@ -74,7 +75,23 @@ export default function Hostel() {
           <li style={{ float: "left", listStyle: "none" }}>{rating} </li>
         ))}
       </ul>
-      <CryptoChart chartData={chartData} />
+      <br />
+      <div>
+        <h3>Reviews</h3>
+        {hostel.reviews.map((review) => (
+          <Card>
+            <Card.Body>
+              <blockquote className="blockquote mb-0">
+                <p> {review.review}</p>
+              </blockquote>
+            </Card.Body>
+            <Card.Footer className="text-muted">{review.reviewer}</Card.Footer>
+          </Card>
+        ))}
+        <Button className="my-3">Leave a review</Button>
+      </div>
+
+      {/* <CryptoChart chartData={chartData} /> */}
     </main>
   );
 }
