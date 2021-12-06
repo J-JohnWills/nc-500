@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 
 export default function Review() {
@@ -17,10 +17,6 @@ export default function Review() {
     e.preventDefault();
     // addReview(userInput)
     setUserInput("");
-  }
-
-  function addReview(userInput) {
-    // TODO: api call to add user
   }
 
   return (

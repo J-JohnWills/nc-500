@@ -62,9 +62,13 @@ export default function Hostel() {
     for (let i = 0; i < ratingsIn.length; i++) {
       total += ratingsIn[i];
     }
-    average = total / ratingsIn.length;
-    console.log(average.toFixed(1));
-    return average.toFixed(1);
+
+    if (total != 0) {
+      average = total / ratingsIn.length;
+      return average;
+    } else {
+      return average;
+    }
   }
 
   return (
@@ -82,6 +86,7 @@ export default function Hostel() {
         {hostel.email}
       </p>
       <h4>Ratings</h4>
+      {/* FIXME: need a use case for no ratings */}
       <p>
         This hostel has an average rating of {averageRating(hostel.ratings)} out
         of 5, from a total of {hostel.ratings.length} reviews.
@@ -106,7 +111,6 @@ export default function Hostel() {
           <Button className="my-3">Leave a review</Button>
         </LinkContainer>
       </div>
-
       {/* <CryptoChart chartData={chartData} /> */}
     </main>
   );
