@@ -4,6 +4,7 @@ import App from "./components/app/App";
 import Hostels from "./components/hostels/Hostels";
 import Hostel from "./components/hostel/Hostel";
 import Itineraries from "./components/itineraries/Itineraries";
+import Review from "./components/review/Review";
 
 const rootElement = document.getElementById("root");
 
@@ -22,6 +23,7 @@ render(
             }
           />
           <Route path=":hostelId" element={<Hostel />} />
+          <Route path=":hostelId/reviews" element={<Review />} />
         </Route>
         <Route path="itineraries" element={<Itineraries />} />
       </Route>

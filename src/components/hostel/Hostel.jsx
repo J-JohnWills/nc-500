@@ -94,7 +94,12 @@ export default function Hostel() {
             <Card.Footer className="text-muted">{review.reviewer}</Card.Footer>
           </Card>
         ))}
-        <Button className="my-3">Leave a review</Button>
+        <LinkContainer
+          to={`/hostels/${hostel.id}/reviews`}
+          key={params.hostelId}
+        >
+          <Button className="my-3">Leave a review</Button>
+        </LinkContainer>
       </div>
 
       {/* <CryptoChart chartData={chartData} /> */}
