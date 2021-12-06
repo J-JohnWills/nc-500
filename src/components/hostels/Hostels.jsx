@@ -3,6 +3,7 @@ import { getHostels } from "../../data";
 import { Col, Container, Form, Nav, Row } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useEffect, useState } from "react";
+import QueryNavLink from "../../QueryNavLink";
 
 export default function Hostels() {
   // For use with hard coded datasource
