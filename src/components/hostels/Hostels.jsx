@@ -5,9 +5,10 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useEffect, useState } from "react";
 import QueryNavLink from "../../QueryNavLink";
 
-export default function Hostels() {
+export default function Hostels({ testy }) {
   // For use with hard coded datasource
   // let hostels = getHostels();
+  console.log(testy);
 
   let [searchParams, setSearchParams] = useSearchParams();
   const [hostelList, setHostelList] = useState([

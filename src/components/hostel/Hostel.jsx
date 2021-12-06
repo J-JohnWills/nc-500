@@ -1,14 +1,62 @@
 import { useParams } from "react-router-dom";
 import { getHostel } from "../../data";
 import { Bar } from "react-chartjs-2";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import CryptoChart from "../CryptoChart";
 
 export default function Hostel() {
+  // const [hostelList, setHostelList] = useState();
+  const [hostelList, setHostelList] = useState({
+    id: "",
+    name: "",
+    address: "",
+    postcode: "",
+    phone: "",
+    email: "",
+    description: "",
+    location: { lat: 0, long: 0 },
+    ratings: [],
+    reviews: [
+      {
+        reviewer: "",
+        review: "",
+      },
+    ],
+  });
   let params = useParams();
   let hostel = getHostel(params.hostelId);
+  console.log(params.hostelId);
+  const url = "http://localhost:8000/hostels/" + params.hostelId;
+  console.log("url: ", url);
+
+  // Fetch from CW data source
+  // useEffect(() => {
+  //   const fetchHostel = async () => {
+  //     const res = await fetch(url);
+  //     const data = await res.json();
+  //     setHostelList(data[0]);
+  //     console.log(hostelList);
+  //   };
+  //   fetchHostel();
+  // }, []);
+
+  const fetchData = useCallback(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const dataList = data[0];
+        setHostelList(dataList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   // TODO: Turn into beautiful ravioli
   // FIXME: Fix this spaghetti
@@ -63,7 +111,7 @@ export default function Hostel() {
       total += ratingsIn[i];
     }
 
-    if (total != 0) {
+    if (total !== 0) {
       average = total / ratingsIn.length;
       return average.toFixed(1);
     } else {
@@ -73,7 +121,7 @@ export default function Hostel() {
 
   return (
     <main>
-      <h2>{hostel.name}</h2>
+      <h2>{hostelList.name}</h2>
       <p>{hostel.description}</p>
       <h4>Where To Find Us</h4>
       <p>
@@ -86,7 +134,6 @@ export default function Hostel() {
         {hostel.email}
       </p>
       <h4>Ratings</h4>
-      {/* FIXME: need a use case for no ratings */}
       <p>
         This hostel has an average rating of {averageRating(hostel.ratings)} out
         of 5, from a total of {hostel.ratings.length} reviews.

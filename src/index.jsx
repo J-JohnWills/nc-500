@@ -13,7 +13,7 @@ render(
     <Routes>
       <Route path="/" element={<App />}>
         {/* Hostels path, including the index and it's children */}
-        <Route path="hostels" element={<Hostels />}>
+        <Route path="hostels" element={<Hostels testy={true} />}>
           <Route
             index
             element={
