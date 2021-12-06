@@ -65,7 +65,7 @@ export default function Hostel() {
 
     if (total != 0) {
       average = total / ratingsIn.length;
-      return average;
+      return average.toFixed(1);
     } else {
       return average;
     }
