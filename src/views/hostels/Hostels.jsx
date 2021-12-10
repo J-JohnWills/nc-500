@@ -27,6 +27,7 @@ export default function Hostels() {
       const res = await fetch("http://localhost:3000/hostels");
       const data = await res.json();
       setHostelsList(data);
+      console.log(hostelsList);
     }
     getHostelsList();
   }, []);

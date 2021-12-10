@@ -5,6 +5,7 @@ import Invoices from "./views/invoices/Invoices";
 import Invoice from "./views/invoices/Invoice";
 import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
+import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
 
 function Home() {
@@ -46,6 +47,7 @@ export default function App() {
             </Route>
             <Route path="hostels" element={<Hostels />}>
               <Route path=":hostelId" element={<Hostel />} />
+              <Route path=":hostelId/reviews" element={<Review />} />
             </Route>
           </Route>
           {/* The no match route - 404  */}
