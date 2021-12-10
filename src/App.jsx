@@ -5,6 +5,7 @@ import Invoices from "./views/invoices/Invoices";
 import Invoice from "./views/invoices/Invoice";
 import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
+import "./bootstrap_flatly.css";
 
 function Home() {
   return (
