@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function HostelReview() {
+export default function HostelReview({ reviewIn }) {
+  console.log(reviewIn);
   return (
     <div>
-      <p>This is a hostel review</p>
+      <p>
+        {reviewIn.review}
+        <br />
+        {reviewIn.reviewer}
+      </p>
     </div>
   );
 }

@@ -43,6 +43,7 @@ export default function Hostel() {
   });
 
   const [average, setAverage] = useState(0);
+  const [reviews, setReviews] = useState([]);
 
   const fetchData = useCallback(() => {
     fetch(url)
@@ -81,7 +82,7 @@ export default function Hostel() {
         This hostel has an average rating of {average} out of 5, from a total of{" "}
         {hostelList.ratings.length} reviews.
       </p>
-      <HostelReviewList />
+      <HostelReviewList reviews={hostelList.reviews} />
     </div>
   );
 }
