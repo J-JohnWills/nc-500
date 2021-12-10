@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import HostelReviewList from "./HostelReviewList";
+import StarRatingComponent from "react-star-rating-component";
+import Rating from "react-rating";
 
 // Takes in an array of numbers and calculates the averages to 1 decimal point
 function calcAverage(numbersIn) {
@@ -78,6 +80,9 @@ export default function Hostel() {
         {hostelList.email}
       </p>
       <h4>Ratings</h4>
+      <StarRatingComponent name="rate1" starCount={5} value={average} />
+      <br />
+      <Rating initialRating={average} fractions={2} readonly />
       <p>
         This hostel has an average rating of {average} out of 5, from a total of{" "}
         {hostelList.ratings.length} reviews.
