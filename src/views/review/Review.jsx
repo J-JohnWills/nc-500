@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
 export default function Review() {
   const [nameInput, setNameInput] = useState("");
   const [reviewInput, setReviewInput] = useState("");
-  const params = useParams();
-  console.log("params", params.hostelId);
+  let params = useParams();
+  let navigate = useNavigate();
 
   const addReview = async () => {
     const query = {
@@ -64,6 +64,7 @@ export default function Review() {
           variant="primary"
           onClick={() => {
             addReview();
+            navigate("/hostels/" + params.hostelId);
           }}
         >
           Submit Review
