@@ -80,9 +80,11 @@ export default function Hostel() {
         {hostelList.email}
       </p>
       <h4>Ratings</h4>
-      <StarRatingComponent name="rate1" starCount={5} value={average} />
-      <br />
-      <Rating initialRating={average} fractions={2} readonly />
+      <span>
+        <Rating initialRating={average} fractions={2} readonly />
+        <p>| from {hostelList.ratings.length} ratings.</p>
+      </span>
+
       <p>
         This hostel has an average rating of {average} out of 5, from a total of{" "}
         {hostelList.ratings.length} reviews.
