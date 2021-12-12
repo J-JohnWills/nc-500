@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-import Expenses from "./views/Expenses";
 import Invoices from "./views/invoices/Invoices";
 import Invoice from "./views/invoices/Invoice";
 import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
 import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
+import Itineraries from "./views/itineraries/Itineraries";
+import MUISandbox from "./views/muiSandbox/MUISandbox";
 
 function Home() {
   return (
@@ -18,9 +19,9 @@ function Home() {
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/invoices">Invoices</Link> |{" "}
-        <Link to="/expenses">Expenses</Link> |{" "}
-        <Link to="/hostels">Hostels</Link>
+        <Link to="/invoices">Invoices</Link> | <Link to="/mui">Mui</Link> |{" "}
+        <Link to="/hostels">Hostels</Link> |{" "}
+        <Link to="/itineraries">Itineraries</Link>
       </nav>
       <Outlet />
     </div>
@@ -33,7 +34,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route path="expenses" element={<Expenses />} />
+            <Route path="mui" element={<MUISandbox />} />
             <Route path="invoices" element={<Invoices />}>
               <Route
                 index
@@ -49,6 +50,7 @@ export default function App() {
               <Route path=":hostelId" element={<Hostel />} />
               <Route path=":hostelId/reviews" element={<Review />} />
             </Route>
+            <Route path="itineraries" element={<Itineraries />}></Route>
           </Route>
           {/* The no match route - 404  */}
           <Route

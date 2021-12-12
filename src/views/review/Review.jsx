@@ -13,25 +13,29 @@ export default function Review() {
       reviewer: nameInput,
       review: reviewInput,
     };
-    console.log(query);
-    const res = await fetch(
-      "http://localhost:3000/hostels/review/" + params.hostelId,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        // mode: "no-cors",
-        body: JSON.stringify(query),
-      }
-    );
-    const data = await res.json();
-    console.log(data);
+
+    // Check to see if input is empty
+    if (query.review.length <= 0 || query.reviewer.length <= 0) {
+      // TODO: quit out, show alert or something
+      alert("no, idiot");
+    } else {
+      const res = await fetch(
+        "http://localhost:3000/hostels/review/" + params.hostelId,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          // mode: "no-cors",
+          body: JSON.stringify(query),
+        }
+      );
+      navigate("/hostels/" + params.hostelId);
+    }
   };
 
   const handleName = (e) => {
     setNameInput(e.currentTarget.value);
-    console.log(nameInput);
   };
 
   const handleReview = (e) => {
@@ -50,6 +54,7 @@ export default function Review() {
             placeholder="Your name here..."
             onChange={handleName}
             value={nameInput}
+            required
           ></Form.Control>
         </Form.Group>
         <Form.Group className="mb-3" controlId="reviewInput">
@@ -58,13 +63,13 @@ export default function Review() {
             as="textarea"
             rows={4}
             onChange={handleReview}
+            required
           ></Form.Control>
         </Form.Group>
         <Button
           variant="primary"
           onClick={() => {
             addReview();
-            navigate("/hostels/" + params.hostelId);
           }}
         >
           Submit Review

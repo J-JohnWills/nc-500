@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import HostelReviewList from "./HostelReviewList";
-import StarRatingComponent from "react-star-rating-component";
 import Rating from "react-rating";
 
 // Takes in an array of numbers and calculates the averages to 1 decimal point
@@ -45,7 +44,6 @@ export default function Hostel() {
   });
 
   const [average, setAverage] = useState(0);
-  const [reviews, setReviews] = useState([]);
 
   const fetchData = useCallback(() => {
     fetch(url)

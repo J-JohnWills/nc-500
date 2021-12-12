@@ -14,6 +14,9 @@
 # api keys
 .env
 
+# Sandbox
+/src/views/muiSandbox/
+
 # misc
 .DS_Store
 .env.local
