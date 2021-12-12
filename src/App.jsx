@@ -9,6 +9,7 @@ import "./bootstrap_flatly.css";
 import Itineraries from "./views/itineraries/Itineraries";
 import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
+import HostelIndex from "./views/hostels/HostelIndex";
 
 function Home() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
               <Route path=":invoiceId" element={<Invoice />} />
             </Route>
             <Route path="hostels" element={<Hostels />}>
+              <Route index element={<HostelIndex />} />
               <Route path=":hostelId" element={<Hostel />} />
               <Route path=":hostelId/reviews" element={<Review />} />
             </Route>

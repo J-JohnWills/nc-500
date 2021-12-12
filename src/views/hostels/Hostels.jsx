@@ -56,7 +56,7 @@ export default function Hostels() {
         ))}
       </nav>
       <Outlet />
-      <HostelCard />
+      {/* <HostelCard /> */}
     </div>
   );
 }
