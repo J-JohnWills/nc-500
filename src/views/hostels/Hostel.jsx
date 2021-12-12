@@ -82,7 +82,6 @@ export default function Hostel() {
         <Rating initialRating={average} fractions={2} readonly />
         <p>| from {hostelList.ratings.length} ratings.</p>
       </span>
-
       <p>
         This hostel has an average rating of {average} out of 5, from a total of{" "}
         {hostelList.ratings.length} reviews.

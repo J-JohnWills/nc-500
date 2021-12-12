@@ -8,21 +8,13 @@ import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
 import Itineraries from "./views/itineraries/Itineraries";
 import MUISandbox from "./views/muiSandbox/MUISandbox";
+import NavbarTop from "./components/NavbarTop";
 
 function Home() {
   return (
     <div>
       <h1>Home</h1>
-      <nav
-        style={{
-          borderBottom: "solid 1px",
-          paddingBottom: "1rem",
-        }}
-      >
-        <Link to="/invoices">Invoices</Link> | <Link to="/mui">Mui</Link> |{" "}
-        <Link to="/hostels">Hostels</Link> |{" "}
-        <Link to="/itineraries">Itineraries</Link>
-      </nav>
+      <NavbarTop />
       <Outlet />
     </div>
   );

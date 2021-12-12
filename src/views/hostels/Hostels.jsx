@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import HostelCard from "./HostelCard";
 
 export default function Hostels() {
   const [hostelsList, setHostelsList] = useState([
@@ -55,6 +56,7 @@ export default function Hostels() {
         ))}
       </nav>
       <Outlet />
+      <HostelCard />
     </div>
   );
 }
