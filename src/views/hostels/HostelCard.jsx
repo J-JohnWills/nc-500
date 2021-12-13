@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 export default function HostelCard({ hostelIn }) {
+  let navigate = useNavigate();
   const [hostel, setHostel] = useState({
     id: "",
     name: "",
@@ -33,7 +34,13 @@ export default function HostelCard({ hostelIn }) {
         <Card.Header as="h5">{hostel.name}</Card.Header>
         <Card.Body>
           <Card.Text>{hostel.description.slice(0, 200) + "..."}</Card.Text>
-          <Button>See More...</Button>
+          <Button
+            onClick={() => {
+              navigate("/hostels/" + hostel.id);
+            }}
+          >
+            See More...
+          </Button>
         </Card.Body>
       </Card>
     </Col>
