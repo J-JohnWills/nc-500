@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function HostelReview({ reviewIn }) {
-  console.log(reviewIn);
   return (
     <div>
       <p>

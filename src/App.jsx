@@ -4,7 +4,7 @@ import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
 import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
-import Itineraries from "./views/itineraries/Itineraries";
+import Itineraries from "./views/itineraries/Itineraries/Itineraries";
 import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
 import HostelIndex from "./views/hostels/HostelIndex";
@@ -71,7 +71,10 @@ export default function App() {
               <Route path=":hostelId" element={<Hostel />} />
               <Route path=":hostelId/reviews" element={<Review />} />
             </Route>
-            <Route path="itineraries" element={<Itineraries />}></Route>
+            <Route
+              path="itineraries"
+              element={<Itineraries hostelList={hostelsList} />}
+            ></Route>
           </Route>
           {/* The no match route - 404  */}
           <Route

@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
-import ItinerariesList from "./ItinerariesList";
+import ItinerariesList from "../ItinerariesList/ItinerariesList";
 
-export default function Itineraries() {
+export default function Itineraries({ hostelList }) {
   const [itineraries, setItineraries] = useState([]);
-  // http://localhost:3000/itineraries
+  const [hostels, setHostels] = useState([]);
   useEffect(() => {
     async function getItineraries() {
       const res = await fetch("http://localhost:3000/itineraries");
       const data = await await res.json();
       setItineraries(data);
-      console.log("itineraries: ", itineraries);
-      console.log("data: ", data);
+      setHostels(hostelList);
     }
     getItineraries();
-  }, [ItinerariesList]);
+  }, [hostelList]);
 
   return (
     <div>

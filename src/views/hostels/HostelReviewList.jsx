@@ -7,7 +7,6 @@ export default function HostelReviewList({ reviews }) {
   const reviewsList = reviews;
   let params = useParams();
   const hostelId = params;
-  console.log("hostelId: ", hostelId);
 
   return (
     <div>
