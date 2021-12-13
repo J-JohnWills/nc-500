@@ -9,12 +9,15 @@ import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
 import HostelIndex from "./views/hostels/HostelIndex";
 import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
+import Footer from "./components/Footer";
+import ItinerariesNew from "./views/itineraries/itinerariesNew/ItinerariesNew";
 
 function Home() {
   return (
     <div>
       <NavbarTop />
       <Outlet />
+      <Footer />
     </div>
   );
 }
@@ -76,7 +79,11 @@ export default function App() {
               path="itineraries"
               element={<Itineraries hostelList={hostelsList} />}
             >
-              <Route index element={<ItinerariesIndex />}></Route>
+              <Route index element={<ItinerariesIndex />} />
+              <Route
+                path="new"
+                element={<ItinerariesNew hostelList={hostelsList} />}
+              />
             </Route>
           </Route>
           {/* The no match route - 404  */}
@@ -84,7 +91,7 @@ export default function App() {
             path="*"
             element={
               <main style={{ padding: "1rem" }}>
-                <p>There's nothing here!</p>
+                <p>Oops, looks like something went wrong</p>
               </main>
             }
           />
