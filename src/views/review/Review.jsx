@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams, useNavigate, Navigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
 
 export default function Review() {
@@ -19,17 +19,14 @@ export default function Review() {
       // TODO: quit out, show alert or something
       alert("no, idiot");
     } else {
-      const res = await fetch(
-        "http://localhost:3000/hostels/review/" + params.hostelId,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          // mode: "no-cors",
-          body: JSON.stringify(query),
-        }
-      );
+      await fetch("http://localhost:3000/hostels/review/" + params.hostelId, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // mode: "no-cors",
+        body: JSON.stringify(query),
+      });
       navigate("/hostels/" + params.hostelId);
     }
   };

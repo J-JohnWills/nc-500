@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 export default function Hostels() {
   const [hostelsList, setHostelsList] = useState([

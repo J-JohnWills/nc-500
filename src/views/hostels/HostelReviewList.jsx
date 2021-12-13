@@ -1,11 +1,10 @@
 import React from "react";
 import HostelReview from "./HostelReview";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function HostelReviewList({ reviews }) {
   const reviewsList = reviews;
-  let navigate = useNavigate();
   let params = useParams();
   const hostelId = params;
   console.log("hostelId: ", hostelId);

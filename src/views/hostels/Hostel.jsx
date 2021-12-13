@@ -4,6 +4,7 @@ import HostelReviewList from "./HostelReviewList";
 import Rating from "react-rating";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 // Takes in an array of numbers and calculates the averages to 1 decimal point
 function calcAverage(numbersIn) {
@@ -73,7 +74,7 @@ export default function Hostel() {
           navigate("/hostels");
         }}
       >
-        Back
+        <ArrowBackIcon />
       </Button>
       <h2>{hostelList.name}</h2>
       <p>{hostelList.description}</p>

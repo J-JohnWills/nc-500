@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
-import Invoices from "./views/invoices/Invoices";
-import Invoice from "./views/invoices/Invoice";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
 import Review from "./views/review/Review";
