@@ -7,7 +7,13 @@ import { LinkContainer } from "react-router-bootstrap";
 
 export default function NavbarTop() {
   return (
-    <Navbar expand="lg" variant="light" bg="light" sticky="top">
+    <Navbar
+      expand="lg"
+      variant="light"
+      bg="light"
+      sticky="top"
+      className="mb-3"
+    >
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand>NC 500</Navbar.Brand>

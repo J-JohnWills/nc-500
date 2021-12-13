@@ -1,26 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
 
-export default function HostelCard() {
+export default function HostelCard({ hostelIn }) {
+  const [hostel, setHostel] = useState({
+    id: "",
+    name: "",
+    address: "",
+    postcode: "",
+    phone: "",
+    email: "",
+    description: "",
+    location: { lat: 0, long: 0 },
+    ratings: [],
+    reviews: [
+      {
+        reviewer: "",
+        review: "",
+      },
+    ],
+  });
+
+  useEffect(() => {
+    setHostel(hostelIn);
+  });
+
   return (
-    <Row xs={1} md={2} className="g-4">
-      {Array.from({ length: 4 }).map((_, idx) => (
-        <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row>
+    <Col>
+      <Card>
+        <Card.Header as="h5">{hostel.name}</Card.Header>
+        <Card.Body>
+          <Card.Text>{hostel.description.slice(0, 200) + "..."}</Card.Text>
+          <Button>See More...</Button>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 }

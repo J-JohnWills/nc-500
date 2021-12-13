@@ -1,10 +1,15 @@
 import React from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import HostelCard from "./HostelCard";
 
-export default function HostelIndex() {
+export default function HostelIndex({ hostelsList }) {
+  console.log(hostelsList);
   return (
-    <div>
-      <h1>Hostel Index</h1>
-      <p>This is the index page of Hostels</p>
-    </div>
+    <Row xs={1} md={2} lg={3} className="g-4">
+      {hostelsList.map((hostel) => (
+        <HostelCard hostelIn={hostel} />
+      ))}
+    </Row>
   );
 }
