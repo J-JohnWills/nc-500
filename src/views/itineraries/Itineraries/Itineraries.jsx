@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import ItineraryNav from "../components/ItineraryNav";
 import ItinerariesList from "../ItinerariesList/ItinerariesList";
 
 export default function Itineraries({ hostelList }) {
@@ -16,7 +18,8 @@ export default function Itineraries({ hostelList }) {
 
   return (
     <div>
-      <h1>Itineraries</h1>
+      <ItineraryNav />
+      <Outlet />
       {itineraries.map((itinerary) => (
         <ItinerariesList itinerariesIn={itinerary} />
       ))}

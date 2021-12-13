@@ -8,6 +8,7 @@ import Itineraries from "./views/itineraries/Itineraries/Itineraries";
 import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
 import HostelIndex from "./views/hostels/HostelIndex";
+import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
 
 function Home() {
   return (
@@ -74,7 +75,9 @@ export default function App() {
             <Route
               path="itineraries"
               element={<Itineraries hostelList={hostelsList} />}
-            ></Route>
+            >
+              <Route index element={<ItinerariesIndex />}></Route>
+            </Route>
           </Route>
           {/* The no match route - 404  */}
           <Route
