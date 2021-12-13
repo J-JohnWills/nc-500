@@ -2,6 +2,8 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useParams } from "react-router";
 import HostelReviewList from "./HostelReviewList";
 import Rating from "react-rating";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 // Takes in an array of numbers and calculates the averages to 1 decimal point
 function calcAverage(numbersIn) {
@@ -24,6 +26,7 @@ export default function Hostel() {
   let params = useParams();
   let hostelId = parseInt(params.hostelId, 10);
   let url = "http://localhost:3000/hostels/" + hostelId;
+  let navigate = useNavigate();
 
   const [hostelList, setHostelList] = useState({
     id: "",
@@ -65,6 +68,13 @@ export default function Hostel() {
 
   return (
     <div>
+      <Button
+        onClick={() => {
+          navigate("/hostels");
+        }}
+      >
+        Back
+      </Button>
       <h2>{hostelList.name}</h2>
       <p>{hostelList.description}</p>
       <h4>Where To Find Us</h4>
