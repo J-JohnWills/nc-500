@@ -9,7 +9,7 @@ import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
 import HostelIndex from "./views/hostels/HostelIndex";
 import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import ItinerariesNew from "./views/itineraries/itinerariesNew/ItinerariesNew";
 
 function Home() {
