@@ -30,10 +30,12 @@ export default function HostelCard({ hostelIn }) {
 
   return (
     <Col>
-      <Card>
+      <Card border="primary">
         <Card.Header as="h5">{hostel.name}</Card.Header>
         <Card.Body>
           <Card.Text>{hostel.description.slice(0, 200) + "..."}</Card.Text>
+        </Card.Body>
+        <Card.Footer>
           <Button
             onClick={() => {
               navigate("/hostels/" + hostel.id);
@@ -41,7 +43,7 @@ export default function HostelCard({ hostelIn }) {
           >
             See More...
           </Button>
-        </Card.Body>
+        </Card.Footer>
       </Card>
     </Col>
   );

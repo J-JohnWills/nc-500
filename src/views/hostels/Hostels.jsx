@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { Container } from "react-bootstrap";
 import { NavLink, Outlet } from "react-router-dom";
-import HostelCard from "./HostelCard";
 
 export default function Hostels() {
   const [hostelsList, setHostelsList] = useState([
@@ -34,29 +34,31 @@ export default function Hostels() {
   }, []);
 
   return (
-    <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem",
-        }}
-      >
-        {hostelsList.map((hostel) => (
-          <NavLink
-            style={({ isActive }) => ({
-              display: "block",
-              margin: "1rem 0",
-              color: isActive ? "red" : "",
-            })}
-            to={`/hostels/${hostel.id}`}
-            key={hostel.id}
-          >
-            {hostel.name}
-          </NavLink>
-        ))}
-      </nav>
+    <Container>
       <Outlet />
-      {/* <HostelCard /> */}
-    </div>
+    </Container>
+    // <div style={{ display: "flex" }}>
+    //   <nav
+    //     style={{
+    //       borderRight: "solid 1px",
+    //       padding: "1rem",
+    //     }}
+    //   >
+    //     {hostelsList.map((hostel) => (
+    //       <NavLink
+    //         style={({ isActive }) => ({
+    //           display: "block",
+    //           margin: "1rem 0",
+    //           color: isActive ? "red" : "",
+    //         })}
+    //         to={`/hostels/${hostel.id}`}
+    //         key={hostel.id}
+    //       >
+    //         {hostel.name}
+    //       </NavLink>
+    //     ))}
+    //   </nav>
+
+    // </div>
   );
 }
