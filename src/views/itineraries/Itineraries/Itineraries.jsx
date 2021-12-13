@@ -20,16 +20,12 @@ export default function Itineraries({ hostelList }) {
   }, [hostelList]);
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          Col 1<ItineraryNav />
-        </Col>
-        <Col>
-          Col 2
-          <Outlet />
-        </Col>
-      </Row>
+    <Container className="p-3">
+      <Container className="p-5 mb-4 bg-light rounded-3 header">
+        <h1>Itineraries</h1>
+        <ItineraryNav />
+      </Container>
+      <Outlet />
 
       {/* {itineraries.map((itinerary) => (
         <ItinerariesList itinerariesIn={itinerary} />
