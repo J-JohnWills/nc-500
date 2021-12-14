@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import ItineraryNav from "../components/ItineraryNav";
-import ItinerariesList from "../ItinerariesList/ItinerariesList";
 import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 
 export default function Itineraries({ hostelList }) {
   const [itineraries, setItineraries] = useState([]);

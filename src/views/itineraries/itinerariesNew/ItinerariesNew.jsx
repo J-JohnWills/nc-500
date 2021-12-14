@@ -1,7 +1,5 @@
 import React, { useState, useReducer } from "react";
 import ItinerariesNewForm from "../itinerariesNewForm/ItinerariesNewForm";
-import { useNavigate } from "react-router-dom";
-import ItinerariesStagesForm from "../itinerariesStagesForm/ItinerariesStagesForm";
 import ItinerariesContext from "../../../context/itineraries/Itineraries";
 
 function reducer(state, item) {
@@ -29,7 +27,6 @@ export default function ItinerariesNew({ hostelList }) {
       </ul>
       <ItinerariesContext.Provider value={{ itinerary, setItinerary }}>
         <ItinerariesNewForm hostelList={hostelList} />
-        <ItinerariesStagesForm />
       </ItinerariesContext.Provider>
     </div>
   );

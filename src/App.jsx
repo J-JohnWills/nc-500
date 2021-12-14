@@ -11,7 +11,6 @@ import HostelIndex from "./views/hostels/HostelIndex";
 import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
 import Footer from "./components/Footer/Footer";
 import ItinerariesNew from "./views/itineraries/itinerariesNew/ItinerariesNew";
-import ItinerariesStagesForm from "./views/itineraries/itinerariesStagesForm/ItinerariesStagesForm";
 
 function Home() {
   return (
@@ -69,10 +68,6 @@ export default function App() {
                 path="new"
                 element={<ItinerariesNew hostelList={hostelsList} />}
               />
-              <Route
-                path="add-stages"
-                element={<ItinerariesStagesForm />}
-              ></Route>
             </Route>
           </Route>
           {/* The no match route - 404  */}
