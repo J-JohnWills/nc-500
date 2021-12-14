@@ -11,6 +11,7 @@ import HostelIndex from "./views/hostels/HostelIndex";
 import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
 import Footer from "./components/Footer/Footer";
 import ItinerariesNew from "./views/itineraries/itinerariesNew/ItinerariesNew";
+import ItinerariesStagesForm from "./views/itineraries/itinerariesStagesForm/ItinerariesStagesForm";
 
 function Home() {
   return (
@@ -23,25 +24,7 @@ function Home() {
 }
 
 export default function App() {
-  const [hostelsList, setHostelsList] = useState([
-    // {
-    //   id: "",
-    //   name: "",
-    //   address: "",
-    //   postcode: "",
-    //   phone: "",
-    //   email: "",
-    //   description: "",
-    //   location: { lat: 0, long: 0 },
-    //   ratings: [],
-    //   reviews: [
-    //     {
-    //       reviewer: "",
-    //       review: "",
-    //     },
-    //   ],
-    // },
-  ]);
+  const [hostelsList, setHostelsList] = useState([]);
 
   const fetchHostels = useCallback(() => {
     fetch("http://localhost:3000/hostels")
@@ -60,6 +43,8 @@ export default function App() {
   useEffect(() => {
     fetchHostels();
   }, []);
+
+  function testy() {}
 
   return (
     <div>
@@ -84,6 +69,10 @@ export default function App() {
                 path="new"
                 element={<ItinerariesNew hostelList={hostelsList} />}
               />
+              <Route
+                path="add-stages"
+                element={<ItinerariesStagesForm />}
+              ></Route>
             </Route>
           </Route>
           {/* The no match route - 404  */}

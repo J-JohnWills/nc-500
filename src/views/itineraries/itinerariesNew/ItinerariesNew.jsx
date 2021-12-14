@@ -1,16 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import ItinerariesNewForm from "../itinerariesNewForm/ItinerariesNewForm";
+import { useNavigate } from "react-router-dom";
+import ItinerariesStagesForm from "../itinerariesStagesForm/ItinerariesStagesForm";
+import ItinerariesContext from "../../../context/itineraries/Itineraries";
+
+function reducer(state, item) {
+  return [...state, item];
+}
 
 export default function ItinerariesNew({ hostelList }) {
-  const [starts, setStarts] = useState({
-    startDate: new Date(),
-    startingHostel: "",
-  });
-
-  function addStarts(date, hostel) {
-    // TODO: code for setting the starts state object, then navigating to the add stages
-    console.log(date, hostel);
-  }
+  const [itinerary, setItinerary] = useReducer(reducer, []);
 
   return (
     <div>
@@ -28,7 +27,10 @@ export default function ItinerariesNew({ hostelList }) {
           each stage and total distance to travel
         </li>
       </ul>
-      <ItinerariesNewForm hostelList={hostelList} addStarts={addStarts} />
+      <ItinerariesContext.Provider value={{ itinerary, setItinerary }}>
+        <ItinerariesNewForm hostelList={hostelList} />
+        <ItinerariesStagesForm />
+      </ItinerariesContext.Provider>
     </div>
   );
 }
