@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 
-export default function ItinerariesNewForm({ hostelList }) {
+export default function ItinerariesNewForm({ hostelList, addStarts }) {
   const [startDate, setStartDate] = useState(new Date());
   const [startingHostel, setStartingHostel] = useState("");
   let navigate = useNavigate();
@@ -23,6 +23,11 @@ export default function ItinerariesNewForm({ hostelList }) {
   const handleHostelSelect = (e) => {
     setStartingHostel(e.currentTarget.value);
     console.log("starting hostel :", startingHostel);
+  };
+
+  const handleSubmit = (e) => {
+    // e.preventDefault();
+    addStarts(startDate, startingHostel);
   };
 
   function addStages() {
@@ -56,7 +61,7 @@ export default function ItinerariesNewForm({ hostelList }) {
       <Button
         variant="primary"
         onClick={() => {
-          addStages();
+          handleSubmit();
         }}
       >
         Add stages

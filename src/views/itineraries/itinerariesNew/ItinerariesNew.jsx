@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import ItinerariesNewForm from "../itinerariesNewForm/ItinerariesNewForm";
 
 export default function ItinerariesNew({ hostelList }) {
+  const [starts, setStarts] = useState({
+    startDate: new Date(),
+    startingHostel: "",
+  });
+
+  function addStarts(date, hostel) {
+    // TODO: code for setting the starts state object, then navigating to the add stages
+    console.log(date, hostel);
+  }
+
   return (
     <div>
       <h1>New trip!</h1>
@@ -18,7 +28,7 @@ export default function ItinerariesNew({ hostelList }) {
           each stage and total distance to travel
         </li>
       </ul>
-      <ItinerariesNewForm hostelList={hostelList} />
+      <ItinerariesNewForm hostelList={hostelList} addStarts={addStarts} />
     </div>
   );
 }
