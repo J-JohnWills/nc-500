@@ -4,13 +4,9 @@ import Hostels from "./views/hostels/Hostels";
 import Hostel from "./views/hostels/Hostel";
 import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
-import Itineraries from "./views/itineraries/Itineraries/Itineraries";
-import MUISandbox from "./views/muiSandbox/MUISandbox";
 import NavbarTop from "./components/NavbarTop";
 import HostelIndex from "./views/hostels/HostelIndex";
-import ItinerariesIndex from "./views/itineraries/itinerariesIndex/ItinerariesIndex";
 import Footer from "./components/Footer/Footer";
-import ItinerariesNew from "./views/itineraries/itinerariesNew/ItinerariesNew";
 
 function Home() {
   return (
@@ -50,7 +46,6 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route path="mui" element={<MUISandbox />} />
             <Route path="hostels" element={<Hostels />}>
               <Route
                 index
@@ -58,16 +53,6 @@ export default function App() {
               />
               <Route path=":hostelId" element={<Hostel />} />
               <Route path=":hostelId/reviews" element={<Review />} />
-            </Route>
-            <Route
-              path="itineraries"
-              element={<Itineraries hostelList={hostelsList} />}
-            >
-              <Route index element={<ItinerariesIndex />} />
-              <Route
-                path="new"
-                element={<ItinerariesNew hostelList={hostelsList} />}
-              />
             </Route>
           </Route>
           {/* The no match route - 404  */}
