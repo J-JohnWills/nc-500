@@ -1,18 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { getDistance } from "geolib/es/getPreciseDistance";
 
 export default function Tripsummary({ hostelIn }) {
   const [hostel, setHostel] = useState([]);
   console.log("hostelIn :", hostelIn);
-
-  function checkIfEmpty(hostelIn) {
-    if (hostelIn === 0) {
-      return;
-    } else {
-      return <p>starting hostel: {hostelIn[0].name}</p>;
-    }
-  }
 
   return (
     <Row>
@@ -26,7 +19,6 @@ export default function Tripsummary({ hostelIn }) {
       </Col>
       <Col>
         <button>finalise</button>
-        {/* {checkIfEmpty(hostelIn)} */}
       </Col>
     </Row>
   );

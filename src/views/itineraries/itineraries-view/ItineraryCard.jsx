@@ -21,7 +21,7 @@ export default function ItineraryCard({ itinerary }) {
         <Card.Footer>
           <Button
             onClick={() => {
-              navigate("/hostels/");
+              navigate("/itineraries/edit");
             }}
           >
             Add/Edit stages

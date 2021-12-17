@@ -53,13 +53,6 @@ export default function ItinerariesNew({ hostelList }) {
         {" "}
         <h1>Choose your hostels</h1>
         <HostelList hostel={hostelList} add={add} remove={remove} />
-        <Button
-          onClick={() => {
-            navigate("/itineraries/new/details");
-          }}
-        >
-          Finalise your trip
-        </Button>
       </Col>
       <Col>
         <Row>
