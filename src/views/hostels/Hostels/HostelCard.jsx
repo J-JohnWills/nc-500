@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function HostelCard({ hostelIn }) {
   let navigate = useNavigate();
+
   const [hostel, setHostel] = useState({
     id: "",
     name: "",

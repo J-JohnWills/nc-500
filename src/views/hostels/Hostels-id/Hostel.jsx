@@ -25,6 +25,7 @@ function calcAverage(numbersIn) {
 
 export default function Hostel() {
   let params = useParams();
+  console.log(params);
   let hostelId = parseInt(params.hostelId, 10);
   let url = "http://localhost:3000/hostels/" + hostelId;
   let navigate = useNavigate();

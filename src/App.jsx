@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./bootstrap_flatly.css";
 import Footer from "./components/Footer/Footer";
@@ -7,7 +7,6 @@ import Container from "react-bootstrap/Container";
 
 // itineraries views
 import Itineraries from "./views/itineraries/itineraries/Itineraries";
-import ItinerariesPlanner from "./views/itineraries/ItinerariesPlanner";
 import ItinerariesView from "./views/itineraries/itineraries-view/ItinerariesView";
 import ItinerariesNew from "./views/itineraries/itineraries-new/ItinerariesNew";
 
@@ -19,6 +18,12 @@ import Review from "./views/hostels/hostel-id-reviews/Review";
 
 // home view
 import Home from "./views/home/Home";
+
+// context
+
+function reducer(state, item) {
+  return [...state, item];
+}
 
 function Layout() {
   return (
@@ -50,6 +55,8 @@ export default function App() {
   useEffect(() => {
     fetchHostels();
   }, []);
+
+  const [itinerary, setItinerary] = useReducer(reducer, []);
 
   return (
     <BrowserRouter>
