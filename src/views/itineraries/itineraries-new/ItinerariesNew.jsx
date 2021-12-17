@@ -49,7 +49,7 @@ export default function ItinerariesNew({ hostelList }) {
 
   return (
     <Row>
-      <Col>
+      <Col sm="4">
         {" "}
         <h1>Choose your hostels</h1>
         <HostelList hostel={hostelList} add={add} remove={remove} />
@@ -59,7 +59,7 @@ export default function ItinerariesNew({ hostelList }) {
           <Col>
             <Tripsummary hostelIn={trip} />
           </Col>
-          <Col></Col>
+          <Col>the trip</Col>
         </Row>
       </Col>
     </Row>
