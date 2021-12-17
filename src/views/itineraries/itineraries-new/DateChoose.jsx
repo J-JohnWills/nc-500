@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function DateChoose() {
@@ -19,19 +19,7 @@ export default function DateChoose() {
     console.log(dateInput);
   };
 
-  const addStartDate = async (startDate, user) => {
-    await fetch(
-      "http://localhost:3000/itineraries/startdate/" + user + "/" + startDate
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
+  // TODO: Add check for empty fields
   const addItinerary = async () => {
     const name = nameInput;
     await fetch("http://localhost:3000/itineraries/new/" + name)
@@ -40,6 +28,19 @@ export default function DateChoose() {
         const startDate = data.startdate;
         console.log(startDate);
         addStartDate(dateInput, name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const addStartDate = async (startDate, user) => {
+    await fetch(
+      "http://localhost:3000/itineraries/startdate/" + user + "/" + startDate
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
       })
       .catch((err) => {
         console.log(err);
@@ -67,7 +68,7 @@ export default function DateChoose() {
             onChange={handleDate}
           ></Form.Control>
         </Form.Group>
-        <LinkContainer to={`/itineraries/new/${nameInput}/stages`}>
+        <LinkContainer to={`/itineraries/new/${nameInput}`}>
           <Button
             className="mt-3"
             variant="success"
@@ -79,6 +80,7 @@ export default function DateChoose() {
           </Button>
         </LinkContainer>
       </Form>
+      <Outlet />
     </div>
   );
 }

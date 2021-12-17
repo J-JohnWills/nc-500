@@ -19,6 +19,7 @@ import Review from "./views/hostels/hostel-id-reviews/Review";
 // home view
 import Home from "./views/home/Home";
 import DateChoose from "./views/itineraries/itineraries-new/DateChoose";
+import AddStages from "./views/itineraries/itineraries-user-stages/AddStages";
 
 // context
 
@@ -82,7 +83,7 @@ export default function App() {
               // element={<ItinerariesNew hostelList={hostelsList} />}
               element={<DateChoose />}
             >
-              <Route path=":user/stages" element={<div>stages</div>}></Route>
+              <Route path=":user" element={<AddStages />}></Route>
             </Route>
           </Route>
         </Route>
