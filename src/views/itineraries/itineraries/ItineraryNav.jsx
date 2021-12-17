@@ -1,6 +1,5 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
-import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
 
 export default function ItineraryNav() {

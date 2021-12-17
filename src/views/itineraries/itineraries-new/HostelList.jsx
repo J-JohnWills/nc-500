@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/Button";
 
 export default function HostelList({ hostel, add, remove }) {
   const [userInput, setUserInput] = useState();
@@ -8,7 +7,7 @@ export default function HostelList({ hostel, add, remove }) {
   return (
     <ListGroup>
       {hostel.map((item) => (
-        <div>
+        <div key={item.id}>
           <ListGroup.Item action onClick={() => add(item)}>
             {item.name}
           </ListGroup.Item>

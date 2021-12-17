@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import ItineraryCard from "./ItineraryCard";
 import Row from "react-bootstrap/Row";
+import datasource from "../../../data/data";
 
 export default function ItinerariesView({ hostelList }) {
   const [itinerariesList, setItinerariesList] = useState([]);
 
   const fetchItineraries = useCallback(() => {
-    fetch("http://localhost:3000/itineraries")
+    fetch(datasource.baseURL + "/itineraries")
       .then((res) => res.json())
       .then((data) => {
         const datalist = data;

@@ -1,10 +1,8 @@
 import React, { createContext, useReducer, useContext, useEffect } from "react";
 import Tripsummary from "./Tripsummary";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
 import HostelList from "./HostelList";
 
 function tripReducer(state, action) {
@@ -33,10 +31,7 @@ function tripReducer(state, action) {
   }
 }
 
-const reducer = (key) => key + 1;
-
 export default function ItinerariesNew({ hostelList }) {
-  let navigate = useNavigate();
   const [trip, setTrip] = useReducer(tripReducer, []);
 
   function add(hostel) {

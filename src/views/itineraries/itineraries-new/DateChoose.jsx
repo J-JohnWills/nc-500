@@ -3,9 +3,9 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Outlet, useNavigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
+import datasource from "../../../data/data";
 
 export default function DateChoose() {
-  let navigate = useNavigate();
   const [nameInput, setNameInput] = useState("");
   const [dateInput, setDateInput] = useState(new Date());
 
@@ -22,11 +22,10 @@ export default function DateChoose() {
   // TODO: Add check for empty fields
   const addItinerary = async () => {
     const name = nameInput;
-    await fetch("http://localhost:3000/itineraries/new/" + name)
+    await fetch(datasource.baseURL + "/itineraries/new/" + name)
       .then((res) => res.json())
       .then((data) => {
         const startDate = data.startdate;
-        console.log(startDate);
         addStartDate(dateInput, name);
       })
       .catch((err) => {
@@ -36,15 +35,11 @@ export default function DateChoose() {
 
   const addStartDate = async (startDate, user) => {
     await fetch(
-      "http://localhost:3000/itineraries/startdate/" + user + "/" + startDate
+      datasource.baseURL + "/itineraries/startdate/" + user + "/" + startDate
     )
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((data) => {})
+      .catch((err) => {});
   };
 
   return (

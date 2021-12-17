@@ -1,9 +1,10 @@
-import React, { useCallback, useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import "./bootstrap_flatly.css";
 import Footer from "./components/Footer/Footer";
 import NavNew from "./components/Nav/Nav";
 import Container from "react-bootstrap/Container";
+import datasource from "./data/data";
 
 // itineraries views
 import Itineraries from "./views/itineraries/itineraries/Itineraries";
@@ -18,14 +19,7 @@ import Review from "./views/hostels/hostel-id-reviews/Review";
 // home view
 import HomePage from "./views/Home/HomePage/HomePage";
 import DateChoose from "./views/itineraries/itineraries-new/DateChoose";
-import AddStages from "./views/itineraries/itineraries-user-stages/AddStages";
 import ItinerariesNew from "./views/itineraries/itineraries-new/ItinerariesNew";
-
-// context
-
-function reducer(state, item) {
-  return [...state, item];
-}
 
 function Layout() {
   return (
@@ -41,13 +35,11 @@ export default function App() {
   const [hostelsList, setHostelsList] = useState([]);
 
   const fetchHostels = useCallback(() => {
-    fetch("http://localhost:3000/hostels")
+    fetch(datasource.baseURL + "/hostels")
       .then((res) => res.json())
       .then((data) => {
         const dataList = data;
         setHostelsList(dataList);
-        console.log("App.js hostelList: ", hostelsList);
-        console.log("datalist", dataList);
       })
       .catch((err) => {
         console.log(err);
@@ -57,8 +49,6 @@ export default function App() {
   useEffect(() => {
     fetchHostels();
   }, []);
-
-  const [itinerary, setItinerary] = useReducer(reducer, []);
 
   return (
     <BrowserRouter>

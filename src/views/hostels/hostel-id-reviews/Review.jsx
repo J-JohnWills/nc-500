@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Form, Button } from "react-bootstrap";
+import datasource from "../../../data/data";
 
 export default function Review() {
   const [nameInput, setNameInput] = useState("");
@@ -19,7 +20,7 @@ export default function Review() {
       // TODO: quit out, show alert or something
       alert("You need to fill out all fields.");
     } else {
-      await fetch("http://localhost:3000/hostels/review/" + params.hostelId, {
+      await fetch(datasource.baseURL + "/hostels/review/" + params.hostelId, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
