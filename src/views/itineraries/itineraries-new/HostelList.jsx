@@ -9,14 +9,8 @@ export default function HostelList({ hostel, add, remove }) {
     <ListGroup>
       {hostel.map((item) => (
         <div>
-          <ListGroup.Item>
+          <ListGroup.Item action onClick={() => add(item)}>
             {item.name}
-            <Button variant="outline-success" onClick={() => add(item)}>
-              Add
-            </Button>
-            <Button variant="outline-danger" onClick={() => remove(item)}>
-              Remove
-            </Button>
           </ListGroup.Item>
         </div>
       ))}

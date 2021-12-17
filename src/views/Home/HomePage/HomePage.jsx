@@ -1,9 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import { LinkContainer } from "react-router-bootstrap";
-import nc500 from "../../assets/images/nc500Scenic.jpg";
+import nc500 from "../../../assets/images/nc500Scenic.jpg";
 
-export default function Home() {
+export default function HomePage() {
   return (
     <div>
       <div className="px-4 pt-5 my-5 text-center border-bottom">

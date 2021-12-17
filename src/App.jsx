@@ -16,7 +16,7 @@ import Hostel from "./views/hostels/Hostels-id/Hostel";
 import Review from "./views/hostels/hostel-id-reviews/Review";
 
 // home view
-import Home from "./views/home/Home";
+import HomePage from "./views/Home/HomePage/HomePage";
 import DateChoose from "./views/itineraries/itineraries-new/DateChoose";
 import AddStages from "./views/itineraries/itineraries-user-stages/AddStages";
 import ItinerariesNew from "./views/itineraries/itineraries-new/ItinerariesNew";
@@ -64,7 +64,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<HomePage />} />
           <Route path="hostels" element={<Hostels />}>
             <Route index element={<HostelIndex hostelsList={hostelsList} />} />
             <Route path=":hostelId" element={<Hostel />} />

@@ -41,7 +41,7 @@ export default function Review() {
 
   return (
     <div>
-      <h1>Leave a review plz thx</h1>
+      <h1>Leave a review for this hostel</h1>
       <Form>
         <Form.Group className="mb-3" controlId="nameInput">
           {" "}
