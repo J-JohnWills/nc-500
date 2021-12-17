@@ -17,7 +17,7 @@ export default function Review() {
     // Check to see if input is empty
     if (query.review.length <= 0 || query.reviewer.length <= 0) {
       // TODO: quit out, show alert or something
-      alert("no, idiot");
+      alert("You need to fill out all fields.");
     } else {
       await fetch("http://localhost:3000/hostels/review/" + params.hostelId, {
         method: "POST",

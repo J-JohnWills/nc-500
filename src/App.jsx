@@ -1,20 +1,32 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
-import Hostels from "./views/hostels/Hostels";
-import Hostel from "./views/hostels/Hostel";
-import Review from "./views/review/Review";
 import "./bootstrap_flatly.css";
-import NavbarTop from "./components/NavbarTop";
-import HostelIndex from "./views/hostels/HostelIndex";
 import Footer from "./components/Footer/Footer";
+import NavNew from "./components/Nav/Nav";
+import Container from "react-bootstrap/Container";
 
-function Home() {
+// itineraries views
+import Itineraries from "./views/itineraries/itineraries/Itineraries";
+import ItinerariesPlanner from "./views/itineraries/ItinerariesPlanner";
+import ItinerariesView from "./views/itineraries/itineraries-view/ItinerariesView";
+import ItinerariesNew from "./views/itineraries/itineraries-new/ItinerariesNew";
+
+// hostels views
+import HostelIndex from "./views/hostels/Hostels/HostelIndex";
+import Hostels from "./views/hostels/Hostels/Hostels";
+import Hostel from "./views/hostels/Hostels-id/Hostel";
+import Review from "./views/hostels/hostel-id-reviews/Review";
+
+// home view
+import Home from "./views/home/Home";
+
+function Layout() {
   return (
-    <div>
-      <NavbarTop />
+    <Container className="py-3">
+      <NavNew />
       <Outlet />
       <Footer />
-    </div>
+    </Container>
   );
 }
 
@@ -39,33 +51,40 @@ export default function App() {
     fetchHostels();
   }, []);
 
-  function testy() {}
-
   return (
-    <div>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route path="hostels" element={<Hostels />}>
-              <Route
-                index
-                element={<HostelIndex hostelsList={hostelsList} />}
-              />
-              <Route path=":hostelId" element={<Hostel />} />
-              <Route path=":hostelId/reviews" element={<Review />} />
-            </Route>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="hostels" element={<Hostels />}>
+            <Route index element={<HostelIndex hostelsList={hostelsList} />} />
+            <Route path=":hostelId" element={<Hostel />} />
+            <Route path=":hostelId/reviews" element={<Review />} />
           </Route>
-          {/* The no match route - 404  */}
           <Route
-            path="*"
-            element={
-              <main style={{ padding: "1rem" }}>
-                <p>Oops, looks like something went wrong</p>
-              </main>
-            }
-          />
-        </Routes>
-      </BrowserRouter>
-    </div>
+            path="itineraries"
+            element={<Itineraries hostelList={hostelsList} />}
+          >
+            <Route
+              path="view"
+              element={<ItinerariesView hostelList={hostelsList} />}
+            />
+            <Route
+              path="new"
+              element={<ItinerariesNew hostelList={hostelsList} />}
+            ></Route>
+          </Route>
+        </Route>
+        {/* The no match route - 404  */}
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem" }}>
+              <p>Oops, looks like something went wrong</p>
+            </main>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
