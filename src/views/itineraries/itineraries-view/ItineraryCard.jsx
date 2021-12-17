@@ -24,7 +24,7 @@ export default function ItineraryCard({ itinerary }) {
               navigate("/hostels/");
             }}
           >
-            See More...
+            Add/Edit stages
           </Button>
         </Card.Footer>
       </Card>

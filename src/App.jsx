@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 // itineraries views
 import Itineraries from "./views/itineraries/itineraries/Itineraries";
 import ItinerariesView from "./views/itineraries/itineraries-view/ItinerariesView";
-import ItinerariesNew from "./views/itineraries/itineraries-new/ItinerariesNew";
 
 // hostels views
 import HostelIndex from "./views/hostels/Hostels/HostelIndex";

@@ -68,7 +68,7 @@ export default function DateChoose() {
             onChange={handleDate}
           ></Form.Control>
         </Form.Group>
-        <LinkContainer to={`/itineraries/new/${nameInput}`}>
+        <LinkContainer to={`/itineraries/view`}>
           <Button
             className="mt-3"
             variant="success"
@@ -76,7 +76,7 @@ export default function DateChoose() {
               addItinerary();
             }}
           >
-            Add stages
+            Add Stages And Edit Your Trip
           </Button>
         </LinkContainer>
       </Form>

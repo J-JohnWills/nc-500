@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Itinerary from "./Itinerary";
 import ItineraryCard from "./ItineraryCard";
 import Row from "react-bootstrap/Row";
 
@@ -25,7 +24,6 @@ export default function ItinerariesView({ hostelList }) {
 
   return (
     <Row xs={1} md={2} lg={3} className="g-2">
-      <h1>View Itineraries</h1>
       {itinerariesList.map((item) => (
         <ItineraryCard itinerary={item} />
       ))}
