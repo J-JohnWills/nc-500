@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Instructions for running the NC-500 application.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project waw bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+NC-500 is a SPA web application built using React.js. 
 
-In the project directory, you can run:
+## Instructions
+If not having done so already, Node.js and NPM (node package manager) must be install on the system intended to run the application. The node installers and instructions can be found here: [Download  Node.js](https://nodejs.org/en/download).
 
-### `npm start`
+The application and it's companion app, the Node/Express API back-end, are hosted on GitHub and can be found here:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[NC-500](https://github.com/J-JohnWills/nc-500)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+and here
 
-### `npm test`
+[NC-500-Backend](https://github.com/J-JohnWills/nc-500)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the applications using your preferred method. This could be through a CLI tool such as Git Bash using the `git clone` command, using the desktop GitHub application, or by simply downloading and then unpacking the .zip file
 
-### `npm run build`
+Open the nc-500-backend folder in your favourite editor and enter the command `npm i` – or – `npm install`. This will download the dependencies specified in the applications package.json, which are necessary for the program to run. Once these have downloaded the program can be started with the command `npm start`. We can check the program is running by opening a browser and navigating to `https://localhost:3000` which should present with a ‘Welcome to Express’ message
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A note on port numbers: The express application by default uses port number 3000, however if you have an environment variable named **PORT** set up on your machine that defaults to a different port number, **8000** for example, the express application will use that port value instead.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Now open the nc-500 folder and repeat the previous step for installing dependencies. If the nc-500-backend application is using a port value that isn’t 3000 as noted above, you will need to open **data.js** and edit const **PORT = ‘ ‘** to the port number the nc-500-backend application is running on. This file can be found in the **‘src’** folder.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Once the dependencies have downloaded, and the PORT number has been changed if needed, the application can be run with the command `npm start`, which will open the application in a browser.
