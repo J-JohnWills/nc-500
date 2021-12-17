@@ -18,6 +18,7 @@ import Review from "./views/hostels/hostel-id-reviews/Review";
 
 // home view
 import Home from "./views/home/Home";
+import DateChoose from "./views/itineraries/itineraries-new/DateChoose";
 
 // context
 
@@ -78,8 +79,11 @@ export default function App() {
             />
             <Route
               path="new"
-              element={<ItinerariesNew hostelList={hostelsList} />}
-            ></Route>
+              // element={<ItinerariesNew hostelList={hostelsList} />}
+              element={<DateChoose />}
+            >
+              <Route path="stages" element={<div>stages</div>}></Route>
+            </Route>
           </Route>
         </Route>
         {/* The no match route - 404  */}

@@ -64,7 +64,7 @@ export default function ItinerariesNew({ hostelList }) {
       <Col>
         <Row>
           <Col>
-            <Tripsummary hostel={trip} />
+            <Tripsummary hostelIn={trip} />
           </Col>
           <Col></Col>
         </Row>
