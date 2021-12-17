@@ -1,12 +1,11 @@
-import React, { createContext, useReducer, useContext } from "react";
+import React, { createContext, useReducer, useContext, useEffect } from "react";
 import Tripsummary from "./Tripsummary";
 import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { ToggleButton } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { ItineraryContext } from "../itineraries/Itineraries";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ListGroup from "react-bootstrap/ListGroup";
+import HostelList from "./HostelList";
 
 function tripReducer(state, action) {
   switch (action.type) {
@@ -53,13 +52,7 @@ export default function ItinerariesNew({ hostelList }) {
       <Col>
         {" "}
         <h1>Choose your hostels</h1>
-        {hostelList.map((hostel) => (
-          <div key={hostel.id}>
-            <li>{hostel.name}</li>
-            <button onClick={() => add(hostel)}>Add</button>
-            <button onClick={() => remove(hostel)}>Remove</button>
-          </div>
-        ))}
+        <HostelList hostel={hostelList} add={add} remove={remove} />
         <Button
           onClick={() => {
             navigate("/itineraries/new/details");
