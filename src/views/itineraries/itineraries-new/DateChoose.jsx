@@ -2,11 +2,49 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import { LinkContainer } from "react-router-bootstrap";
 
 export default function DateChoose() {
   let navigate = useNavigate();
   const [nameInput, setNameInput] = useState("");
   const [dateInput, setDateInput] = useState(new Date());
+
+  const handleName = (e) => {
+    setNameInput(e.currentTarget.value);
+    console.log(nameInput);
+  };
+
+  const handleDate = (e) => {
+    setDateInput(e.currentTarget.value);
+    console.log(dateInput);
+  };
+
+  const addStartDate = async (startDate, user) => {
+    await fetch(
+      "http://localhost:3000/itineraries/startdate/" + user + "/" + startDate
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const addItinerary = async () => {
+    const name = nameInput;
+    await fetch("http://localhost:3000/itineraries/new/" + name)
+      .then((res) => res.json())
+      .then((data) => {
+        const startDate = data.startdate;
+        console.log(startDate);
+        addStartDate(dateInput, name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
@@ -17,13 +55,29 @@ export default function DateChoose() {
           <Form.Control
             type="text"
             placeholder="Your name here..."
+            onChange={handleName}
+            value={nameInput}
           ></Form.Control>
         </Form.Group>
         <Form.Group>
           <Form.Label>Choose A Starting Date</Form.Label>
-          <Form.Control type="date"></Form.Control>
+          <Form.Control
+            type="date"
+            value={dateInput}
+            onChange={handleDate}
+          ></Form.Control>
         </Form.Group>
-        <Button className="mt-3">Add stages</Button>
+        <LinkContainer to={`/itineraries/new/${nameInput}/stages`}>
+          <Button
+            className="mt-3"
+            variant="success"
+            onClick={() => {
+              addItinerary();
+            }}
+          >
+            Add stages
+          </Button>
+        </LinkContainer>
       </Form>
     </div>
   );

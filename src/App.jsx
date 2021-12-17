@@ -82,7 +82,7 @@ export default function App() {
               // element={<ItinerariesNew hostelList={hostelsList} />}
               element={<DateChoose />}
             >
-              <Route path="stages" element={<div>stages</div>}></Route>
+              <Route path=":user/stages" element={<div>stages</div>}></Route>
             </Route>
           </Route>
         </Route>
